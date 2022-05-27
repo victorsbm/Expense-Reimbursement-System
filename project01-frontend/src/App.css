@@ -1,0 +1,11 @@
+:root {
+  --bg: #f0f1f3;
+  --dark: #0F0F0F;
+  --btn-blue: #36b765;
+  --accent: #23CE6B;
+  --text-white: #f87b3a;
+}
+
+body {
+  background-color: var(--bg);
+}

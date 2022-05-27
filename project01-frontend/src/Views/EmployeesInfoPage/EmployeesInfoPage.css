@@ -1,0 +1,9 @@
+.info-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table-display {
+    margin-top: 50px;
+}

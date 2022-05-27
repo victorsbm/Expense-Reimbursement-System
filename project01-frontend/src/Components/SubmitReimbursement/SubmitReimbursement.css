@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-div {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.reimburse-btn {
+    padding: 7px;
+
+}
+
+.form-submit {
+    width: 30%;
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.h3-reimbusement {
+    text-align: center;
+    margin: 0;
+}
+
+.h4-reimburse-submit {
+    margin: 20px 0 10px 0;
+}
+
+.reimburse-input {
+    width: 100%;
+    height: 30px;
+    margin: auto;
+    border-radius: 3px;
+}
+
+.submit-input {
+    margin: 40px 0 10px 0;
+    width: 100%;
+    height: 35px;
+    padding: auto;
+}
+
+.link{
+    text-decoration: none;
+}

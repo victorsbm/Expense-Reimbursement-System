@@ -1,0 +1,19 @@
+.info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-btn {
+    width: 30%;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding: auto;
+}
+
+.edit-link {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
