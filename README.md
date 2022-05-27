@@ -1,0 +1,2 @@
+# Expense-Reimbursement-System
+This Expense Reimbursement System will manage the process of reimbursing employees for expenses incurred. The employees can login and submit their requests for reimbursement, and they can view their past tickets and their pending requests. Finance managers can log in as manager account. They can view all reimbursement requests and past history for all employees in the company. Finance managers are authorized to approve and deny the requests for expense reimbursement.
