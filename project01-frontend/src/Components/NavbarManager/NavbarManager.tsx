@@ -23,13 +23,12 @@ export const NavbarManager: React.FC = () => {
 
     return(
         <nav className="navbar">
-            <img className="profile-pic" src={""} />
             <ul className='nav-menu'>
                 <li className="nav-item">
                     <Link to={"/home"} className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={"/reimbursement/employee"} className="nav-link">Reimbursement</Link>
+                    <Link to={"/manager/allReimbursement/Pending"} className="nav-link">Reimbursement</Link>
                 </li>
                 <li className="nav-item">
                     <Link to={"/manager/employeesinfo"} className="nav-link">Employees Ac Info</Link>

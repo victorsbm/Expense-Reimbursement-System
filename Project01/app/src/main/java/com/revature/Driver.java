@@ -48,7 +48,8 @@ public class Driver
             path("reimbursement",()->{
                 post("/submit",rc.handleSubmit);
                 post("/show",rc.handleSingleUserReimbursement);
-                get("/showAll",rc.handleAllUsersReimbursement);
+                post("/showOther",rc.handleManagerSingleUserReimbursement);
+                post("/showAll",rc.handleAllUsersReimbursement);
                 put("/updateRequest", rc.handleUpdateRequest);
             });
         });

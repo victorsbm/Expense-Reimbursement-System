@@ -26,7 +26,10 @@ public class ReimbursementController {
 
         if(ctx.req.getSession().getAttribute("userId") == null){
             ctx.result("You must login first.");
-        } else {
+        } else if(r.getAmount()<0) {
+            ctx.result("Enter positive value");
+        }
+        else {
             int userId = (int)ctx.req.getSession().getAttribute("userId");
             Reimbursement reimburse = rs.submitReimburse(r,userId);
             ctx.result(om.writeValueAsString(reimburse));
@@ -45,22 +48,41 @@ public class ReimbursementController {
             ctx.result(om.writeValueAsString(rList));
         }
     };
+
+    public Handler handleManagerSingleUserReimbursement = ctx -> {
+        Reimbursement reimburse = om.readValue(ctx.body(), Reimbursement.class);
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        om.setDateFormat(df);
+        String role = (String) ctx.req.getSession().getAttribute("role");
+
+        if(!role.equals("Manager")){
+            ctx.result("Only Manager can see others request.");
+            System.out.println("Error");
+        } else {
+            List<Reimbursement> rList = rs.getSingleUserReimbursement(reimburse);
+            ctx.result(om.writeValueAsString(rList));
+        }
+    };
     public Handler handleAllUsersReimbursement = ctx -> {
         Map<String,String> map = om.readValue(ctx.body(), Map.class);
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        om.setDateFormat(df);
+        String role = (String) ctx.req.getSession().getAttribute("role");
         if(ctx.req.getSession().getAttribute("userId") == null){
             ctx.result("User must login.");
-        } else if(!ctx.req.getSession().getAttribute("role").equals("Manager")){
+        } else if(!role.equals("Manager")){
             ctx.result("Only manager can see different users reimbursement request.");
         } else {
-            List<Reimbursement> rList = rs.getAllUsersReimbursement(map.get("reimbursementStatus"));
+            List<Reimbursement> rList = rs.getAllUsersReimbursement(map.get("reimburseStatus"));
             ctx.result(om.writeValueAsString(rList));
         }
     };
     public Handler handleUpdateRequest = ctx -> {
         Reimbursement r = om.readValue(ctx.body(), Reimbursement.class);
+        String role = (String) ctx.req.getSession().getAttribute("role");
         if(ctx.req.getSession().getAttribute("userId") == null){
             ctx.result("User must login.");
-        } else if(!ctx.req.getSession().getAttribute("role").equals("Manager")){
+        } else if(!role.equals("Manager")){
             ctx.result("Only manager can see different users reimbursement request.");
         } else {
             int resolverId = (int)ctx.req.getSession().getAttribute("userId");

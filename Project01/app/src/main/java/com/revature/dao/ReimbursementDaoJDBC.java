@@ -137,21 +137,26 @@ public class ReimbursementDaoJDBC implements IReimbursementDao{
     public void update(int resolverId, int reimburseId, String status) {
         Connection con = cs.getConnection();
 
+        Date date = new Date();
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+
+
         int rStatus = 0;
         switch (status){
-            case "pending": rStatus = 1;
+            case "Pending": rStatus = 1;
                 break;
-            case "approved": rStatus = 2;
+            case "Approved": rStatus = 2;
                 break;
-            case "denied": rStatus = 3;
+            case "Denied": rStatus = 3;
                 break;
             }
-        String sql = "update reimbursement set reimburse_resolver = ?, reimburse_status = ? where reimburse_id = ?";
+        String sql = "update reimbursement set reimburse_resolver = ?, reimburse_status = ?, resolved_date = ? where reimburse_id = ?";
         try{
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1,reimburseId);
+            ps.setInt(1,resolverId);
             ps.setInt(2,rStatus);
-            ps.setInt(3,reimburseId);
+            ps.setDate(3,sqlDate);
+            ps.setInt(4,reimburseId);
             ps.executeUpdate();
         } catch (Exception e){
             e.printStackTrace();

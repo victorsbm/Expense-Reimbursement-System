@@ -81,7 +81,6 @@ public class UserDaoJDBC implements IUserDao{
         Connection con = cs.getConnection();
         String sql = "insert into users (user_name, password, first_name, last_name, email, role_id) values(?,?,?,?,?,?)";
         int roleId = u.getRole().equals("Manager") ? 1 : 2;
-        System.out.println(roleId);
         try{
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1,u.getUsername());

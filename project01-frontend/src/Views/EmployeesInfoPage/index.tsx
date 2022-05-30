@@ -22,6 +22,7 @@ export const EmployeesInfoPage = () =>{
         <div>
             <NavbarManager />
             <div className="info-div">
+                <h3 className="all-employees-heading-h3">All Employees Account Info</h3>
                 <table className="table-display">
                 <thead>
                     <tr>

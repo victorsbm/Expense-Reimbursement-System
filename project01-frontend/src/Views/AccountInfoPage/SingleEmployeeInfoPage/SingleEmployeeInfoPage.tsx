@@ -12,6 +12,7 @@ export const SingleEmployeeInfoPage : React.FC = () => {
     
     const userState = useSelector((state:RootState) => state.user.user);
     const isLogged = useSelector((state:RootState) => state.user.isLogged);
+    const isUpdated = useSelector((state:RootState) => state.user.isUpdated);
     const navigator = useNavigate();
     useEffect(() =>{
         if(!isLogged){
@@ -22,8 +23,12 @@ export const SingleEmployeeInfoPage : React.FC = () => {
         <>
             <Navbar />
             <div className="info-container">
+            <h3 className="account-info-h3">Employee Account Info</h3>
             { userState !== undefined ? <SingleEmployeeInfo {...userState} /> : <></> }
-            <button className="edit-btn"><Link to ={`/employee/${userState?.username}/edit`} className="edit-link">Edit</Link></button>
+            <button className="edit-btn">            
+                <Link to ={`/employee/${userState?.username}/edit`} 
+                className="edit-link">Edit</Link>             
+            </button>
             </div>
         </>
     )

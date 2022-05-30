@@ -9,6 +9,7 @@ interface UserSliceState {
     loading: boolean,
     error: boolean,
     isLogged: boolean,
+    isUpdated: boolean,
     user?: IUser,
     userList?: IUser[],
     reimbursement?: IReimbursement,
@@ -18,7 +19,8 @@ interface UserSliceState {
 const initialUserState: UserSliceState = {
     loading: false,
     error: false,
-    isLogged: false
+    isLogged: false,
+    isUpdated: false
 }
 
 type Login = {
@@ -84,7 +86,10 @@ export const updateUser = createAsyncThunk(
             console.log(res.data);
             return res.data;
         } catch(e){
-            return thunkAPI.rejectWithValue('something went wrong');
+            console.log("user already exists")
+            return null;
+            //return thunkAPI.rejectWithValue('something went wrong');
+            
         }
     }
 )
@@ -96,14 +101,14 @@ export const submitReimbursement = createAsyncThunk(
             const res = await axios.post("http://localhost:8000/reimbursement/submit",reimburseData);
             console.log(res.data);
             return {
-                id: res.data.id,
+                reimburseId: res.data.reimburseId,
                 amount: res.data.amount,
-                submitDate: res.data.submitedDate,
-                resolveDate: res.data.resolvedDate,
+                submittDate: res.data.submittedDate,
+                resolvedDate: res.data.resolvedDate,
                 description: res.data.description,
-                author: res.data.reimburseAuthor,
-                resolver: res.data.reimburseResolver, 
-                status: res.data.reimburseStatus,
+                reimburseAuthor: res.data.reimburseAuthor,
+                reimburseResolver: res.data.reimburseResolver, 
+                reimburseStatus: res.data.reimburseStatus,
                 reimburseType: res.data.reimburseType
             }
         } catch(error){
@@ -117,6 +122,43 @@ export const pendingReimbursement = createAsyncThunk(
     async (reimburseData: reimburseData, thunkAPI) => {
         try{
             const res = await axios.post("http://localhost:8000/reimbursement/show",reimburseData);
+            return res.data;
+        } catch(error){
+            console.log(error);
+        }
+    }
+)
+
+export const showOtherReimbursement = createAsyncThunk(
+    'user/otherReimbursement',
+    async (reimburseData: any, thunkAPI) => {
+        try{
+            const res = await axios.post("http://localhost:8000/reimbursement/showOther",reimburseData);
+            return res.data;
+        } catch(error){
+            console.log(error);
+        }
+    }
+)
+
+export const allPendingReimbursement = createAsyncThunk(
+    'user/allReimbursement',
+    async (reimburseData: reimburseData, thunkAPI) => {
+        try{
+            const res = await axios.post("http://localhost:8000/reimbursement/showAll",reimburseData);
+            return res.data;
+            
+        } catch(error){
+            console.log(error);
+        }
+    }
+)
+
+export const actionReimbursement = createAsyncThunk(
+    'user/actionReimbursement',
+    async (reimburseData: any, thunkAPI) => {
+        try{
+            const res = await axios.put("http://localhost:8000/reimbursement/updateRequest",reimburseData);
             return res.data;
             
         } catch(error){
@@ -132,6 +174,9 @@ export const UserSlice = createSlice({
     reducers: {
         toggleError : (state) => {
             state.error = !state.error;
+        },
+        updateCheck : (state) => {
+            state.isUpdated = !state.isUpdated;
         }
     },
     extraReducers: (builder) => {
@@ -155,21 +200,29 @@ export const UserSlice = createSlice({
             state.isLogged = false;
         });
         builder.addCase(updateUser.fulfilled, (state, action) => {
-            state.user = action.payload;
+            state.isUpdated = action.payload ? true : false; 
+            state.user = action.payload ? action.payload : state.user            
         });
         builder.addCase(allUserInfo.fulfilled, (state, action) => {
             state.userList = action.payload;
         });
         builder.addCase(submitReimbursement.fulfilled, (state, action) => {
             state.reimbursement = action.payload;
+        
         });
         builder.addCase(pendingReimbursement.fulfilled, (state, action) => {
             state.reimbursementList = action.payload;
         });
-    }
+        builder.addCase(allPendingReimbursement.fulfilled, (state, action) => {
+            state.reimbursementList = action.payload;
+        });
+        builder.addCase(showOtherReimbursement.fulfilled, (state, action) => {
+            state.reimbursementList = action.payload;
+        });
+    } 
 })
 
 //If we had normal actions and reducers we would export them like this
-export const {toggleError} = UserSlice.actions;
+export const {toggleError, updateCheck } = UserSlice.actions;
 
 export default UserSlice.reducer;

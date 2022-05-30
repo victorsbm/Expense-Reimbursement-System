@@ -22,7 +22,6 @@ export const Navbar: React.FC = () => {
 
     return(
         <nav className="navbar">
-            <img className="profile-pic" src={""} />
             <ul className='nav-menu'>
                 <li className="nav-item">
                     <Link to={"/employee/home"} className="nav-link">Home</Link>

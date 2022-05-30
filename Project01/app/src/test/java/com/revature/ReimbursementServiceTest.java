@@ -1,4 +1,5 @@
 package com.revature;
+
 import com.revature.dao.*;
 import com.revature.services.*;
 import com.revature.models.*;
@@ -15,9 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -156,7 +155,6 @@ public class ReimbursementServiceTest {
         Reimbursement resolved1 = new Reimbursement(1, 300, today, today, "travelling", "Victor", "Manger",  "Accept", "TRAVEL");
         Reimbursement resolved2 = new Reimbursement(2, 4130, today, today, "Other thing during travelling", "Victor", "Manager", "Accept", "OTHER");
 
-
         viewResolvedList.add(resolved1);
         viewResolvedList.add(resolved2);
 
@@ -165,12 +163,5 @@ public class ReimbursementServiceTest {
         List<Reimbursement> actualList = rs.getAllUsersReimbursement("Accept");
         verify(rd).getAll("Accept");
         assertEquals(actualList, expectedList);
-
-
-
     }
-
-
-
-
 }

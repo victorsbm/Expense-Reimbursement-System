@@ -1,4 +1,5 @@
 package com.revature;
+
 import com.revature.exceptions.DuplicateUsernameException;
 import com.revature.exceptions.UserNotFoundException;
 import com.revature.exceptions.UsernameOrEmailIncorrectException;

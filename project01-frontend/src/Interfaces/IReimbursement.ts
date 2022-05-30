@@ -8,5 +8,5 @@ export interface IReimbursement {
     reimburseAuthor?: string,
     reimburseResolver?: string, 
     reimburseStatus?: string,
-    reimburseType: string
+    reimburseType: string,
 }

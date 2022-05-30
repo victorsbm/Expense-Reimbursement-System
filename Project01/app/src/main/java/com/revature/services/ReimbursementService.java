@@ -21,6 +21,6 @@ public class ReimbursementService {
         return rDao.getAll(status);
     }
     public void updateRequest(int resolverId, int reimburseId, String status){
-        rDao.update(resolverId, reimburseId,status);
+        rDao.update(resolverId, reimburseId, status);
     }
 }

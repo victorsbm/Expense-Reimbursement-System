@@ -35,6 +35,7 @@ public class UserController {
             ctx.req.getSession().setAttribute("userId", user.getUserId());
             ctx.req.getSession().setAttribute("username", user.getUsername());
             ctx.req.getSession().setAttribute("role", user.getRole());
+            System.out.println(ctx.req.getSession().getAttribute("userId"));
             ctx.result(om.writeValueAsString(user));
         } catch (UserNotFoundException e){
             throw e;

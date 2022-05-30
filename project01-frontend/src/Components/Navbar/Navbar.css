@@ -1,6 +1,6 @@
 
 .navbar {
-    background: var(--accent);
+    background: var(--bkg-color);
     height: 80px;
     display: flex;
     justify-content: center;
@@ -32,16 +32,16 @@
 }
 
 .nav-link {
-    color: var(--dark);
+    color: var(--wheat-color);
     font-size: 1.5rem;
     text-decoration: none;
     cursor: pointer;
 }
 
 .logout-btn{
-    background-color: var(--btn-blue);
-    border: solid 2px var(--dark);
-    color: var(--dark);
+    background-color: #3043c2;
+    border: solid 2px var(--border);
+    color: var(--wheat-color);
     font-weight: bold;
     border-radius: 10px;
     width: 100px;
@@ -55,7 +55,7 @@
 }
 
 .logout-btn:hover {
-    background-color: #33a95f;
+    background-color: var(--btn-blue);
 }
 
 .logout {
