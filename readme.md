@@ -6,12 +6,14 @@ This Expense Reimbursement System will manage the process of reimbursing employe
 
 ## Technologies Used
 
-* Typescript
+* Typescript, HTML, CSS
 * React
 * Gradle
 * Java
 * JDBC
 * JUnit
+* Javalin
+* Etc
 
 ## Getting Started
 Setting the database matching the Object models (User and Reimbursement) 
