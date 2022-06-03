@@ -16,13 +16,22 @@ This Expense Reimbursement System will manage the process of reimbursing employe
 * Etc
 
 ## Getting Started
-Setting the database same as the following image, for mathcing Object models (User and Reimbursement) 
+1. Setting the localhost database same as the following image, for mathcing Object models (User and Reimbursement),
 
 ![alt text](ER_database.png)
 
-Open the Project01 folder using Intellij, and write the URL, name, etc. in application.properties to connect the database, and run "Driver.java"
+2. Open the Project01 folder using Intellij, create file named application.properties into following path: Project1\Project01\app\src\main\resources
 
-Open the project01-frontend folder using Visual Studio Code
+3. Inside this file, writhe the following content to connect your database, 
+    url = jdbc:postgresql://localhost:5432/database_name
+    username = database_username
+    password = database_password
+
+4. Connect your database    
+
+5. then run "Driver.java"
+
+6. Open the project01-frontend folder using Visual Studio Code
 - You need to install the react package(s) if there is error in import statement, type "npm install" in terminal
 - Type "npm start" in terminal to open the front-end page
 
