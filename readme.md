@@ -21,8 +21,8 @@ Setting the database matching the Object models (User and Reimbursement)
 Open the Project01 folder using Intellij, and write the URL, name, etc. in application.properties to connect the database, and run "Driver.java"
 
 Open the project01-frontend folder using Visual Studio Code
-- You need to install the react package(s) if there is error in import statement
-- Type "npm start" to open the front-end page
+- You need to install the react package(s) if there is error in import statement, type "npm install" in terminal
+- Type "npm start" in terminal to open the front-end page
 
 ## As an employee, the user cam 
 Login as an employee
