@@ -18,7 +18,7 @@ This Expense Reimbursement System will manage the process of reimbursing employe
 ## Getting Started
 Setting the database same as the following image, for mathcing Object models (User and Reimbursement) 
 
-![alt text](https://github.com/victorsbm/Expense-Reimbursement-System/ER_database.png)
+![alt text](ER_database.png)
 
 Open the Project01 folder using Intellij, and write the URL, name, etc. in application.properties to connect the database, and run "Driver.java"
 
