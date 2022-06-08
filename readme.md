@@ -16,22 +16,25 @@ This Expense Reimbursement System will manage the process of reimbursing employe
 * Etc
 
 ## Getting Started
-1. Setting the localhost database same as the following image, for mathcing Object models (User and Reimbursement),
+1. Clone repository into the a working directory with the following command in git Bash: 
+- git clone https://github.com/victorsbm/Expense-Reimbursement-System
+
+2. Setting the localhost database same as the following image, for mathcing Object models (User and Reimbursement),
 
 ![alt text](ER_database.png)
 
-2. Open the Project01 folder using Intellij, create file named application.properties into following path: Project1\Project01\app\src\main\resources
+3. Open the Project01 folder using Intellij, create file named application.properties into following path: Project1\Project01\app\src\main\resources
 
-3. Inside this file, writhe the following content to connect your database, 
+4. Inside this file, writhe the following content to connect your database, 
     url = jdbc:postgresql://localhost:5432/database_name
     username = database_username
     password = database_password
 
-4. Connect your database    
+5. Connect your database    
 
-5. then run "Driver.java"
+6. then run "Driver.java"
 
-6. Open the project01-frontend folder using Visual Studio Code
+7. Open the project01-frontend folder using Visual Studio Code
 - You need to install the react package(s) if there is error in import statement, type "npm install" in terminal
 - Type "npm start" in terminal to open the front-end page
 
