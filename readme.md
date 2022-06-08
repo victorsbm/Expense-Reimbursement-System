@@ -38,6 +38,8 @@ This Expense Reimbursement System will manage the process of reimbursing employe
 - You need to install the react package(s) if there is error in import statement, type "npm install" in terminal
 - Type "npm start" in terminal to open the front-end page
 
+![alt text](login_page_image.JPG)
+
 ## As an employee, the user cam 
 Login as an employee
 Logout
