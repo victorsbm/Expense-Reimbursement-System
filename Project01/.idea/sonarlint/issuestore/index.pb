@@ -5,16 +5,10 @@ l
 <app/src/main/java/com/revature/models/ReimbursementType.java,9\0\909e8eed50690cb1723178bf35564ef65db291b9
 m
 =app/src/main/java/com/revature/utils/ConnectionSingleton.java,b\e\be5f804cc3d9375a1f930bcc5a538d12231ce04d
-c
-3app/src/main/java/com/revature/models/UserRole.java,8\1\8163c4788922234e5e1d515293096577225c4471
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 y
 Iapp/src/main/java/com/revature/exceptions/DuplicateUsernameException.java,9\3\93308839ff7ee2c9ba0aacda0e3d22212f47b6ef
 t
 Dapp/src/main/java/com/revature/exceptions/UserNotFoundException.java,3\c\3cde24855e8f9f3b083326d5600a09b8fb9f6065
-_
-/app/src/main/java/com/revature/models/User.java,f\f\fff6efe38be8224006013f88454fc3e0dd198250
 i
 9app/src/main/java/com/revature/dao/IReimbursementDao.java,b\3\b3e7ef513d52d7638cb56b188227347f4bb8bdeb
 `
